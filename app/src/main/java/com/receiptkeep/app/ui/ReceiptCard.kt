@@ -14,16 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ReceiptCard(receipt: Receipt, onClick: () -> Unit){
+fun ReceiptCard(receipt: Receipt, onClick: (Receipt) -> Unit){
     Column(modifier = Modifier
         .fillMaxWidth()
-        .clickable { onClick() }
-        .padding(10.dp, 10.dp, 10.dp, 0.dp)
+        .clickable { onClick(receipt) }
         .border(width = 3.dp, color = Color.Black, shape = RoundedCornerShape(10.dp))
         .padding(all = 10.dp)){
         Text(
@@ -51,33 +49,5 @@ fun ReceiptCard(receipt: Receipt, onClick: () -> Unit){
             fontSize = 22.sp
         )
 
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun ReceiptCardPreview() {
-    Column(){
-        ReceiptCard(
-            receipt = Receipt(
-                id = 1L,
-                merchantName = "Сільпо",
-                totalPrice = 450.50,
-                currency = "UAH",
-                note = "Продукти на тиждень"
-            ),
-            onClick = { }
-        )
-
-        ReceiptCard(
-            receipt = Receipt(
-                id = 2L,
-                merchantName = "Shop2",
-                totalPrice = 550.50,
-                currency = "$",
-                note = "Another example"
-            ),
-            onClick = { }
-        )
     }
 }

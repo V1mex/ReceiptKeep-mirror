@@ -4,13 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.receiptkeep.app.model.Receipt
+import com.receiptkeep.app.ui.ReceiptCardList
 import com.receiptkeep.app.ui.theme.ReceiptKeepTheme
 
 class MainActivity : ComponentActivity() {
@@ -18,30 +13,24 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            ReceiptKeepTheme() {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+            ReceiptKeepTheme {
+                // dummy data
+                val dummyReceipts = listOf(
+                    Receipt(
+                        id = 1L,
+                        merchantName = "Сільпо",
+                        totalPrice = 450.50,
+                        note = "Продукти",
+                        currency = "$"
+                    ),
+                    Receipt(
+                        id = 2L,
+                        merchantName = "АТБ",
+                        totalPrice = 120.00,
+                        currency = "UAH")
+                )
+                ReceiptCardList(receipts = dummyReceipts, {})
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    ReceiptKeepTheme {
-        Greeting("Android")
     }
 }
