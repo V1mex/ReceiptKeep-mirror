@@ -1,0 +1,83 @@
+package com.receiptkeep.app.ui
+
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import com.receiptkeep.app.R
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Text
+import com.receiptkeep.app.model.Receipt
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+
+@Composable
+fun ReceiptCard(receipt: Receipt, onClick: () -> Unit){
+    Column(modifier = Modifier
+        .fillMaxWidth()
+        .clickable { onClick() }
+        .padding(10.dp, 10.dp, 10.dp, 0.dp)
+        .border(width = 3.dp, color = Color.Black, shape = RoundedCornerShape(10.dp))
+        .padding(all = 10.dp)){
+        Text(
+            text = receipt.date.toString(),
+            fontSize = 24.sp,
+            fontWeight = FontWeight.Bold)
+        if(receipt.merchantName != null){
+            Text(
+                text = stringResource(
+                R.string.merchant_name,
+                receipt.merchantName),
+                fontSize = 22.sp
+            )
+        }
+        if(receipt.note != null){
+            Text(
+                text = stringResource(
+                R.string.note,
+                receipt.note),
+                fontSize = 22.sp
+            )
+        }
+        Text(
+            text = receipt.totalPrice.toString() + " " + receipt.currency,
+            fontSize = 22.sp
+        )
+
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun ReceiptCardPreview() {
+    Column(){
+        ReceiptCard(
+            receipt = Receipt(
+                id = 1L,
+                merchantName = "Сільпо",
+                totalPrice = 450.50,
+                currency = "UAH",
+                note = "Продукти на тиждень"
+            ),
+            onClick = { }
+        )
+
+        ReceiptCard(
+            receipt = Receipt(
+                id = 2L,
+                merchantName = "Shop2",
+                totalPrice = 550.50,
+                currency = "$",
+                note = "Another example"
+            ),
+            onClick = { }
+        )
+    }
+}
