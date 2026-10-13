@@ -25,7 +25,7 @@ fun ReceiptCard(receipt: Receipt, onClick: (Receipt) -> Unit){
         .border(width = 3.dp, color = Color.Black, shape = RoundedCornerShape(10.dp))
         .padding(all = 10.dp)){
         Text(
-            text = receipt.date.toString(),
+            text = stringResource(R.string.date, receipt.date.toString()),
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold)
         if(receipt.merchantName != null){
@@ -36,18 +36,18 @@ fun ReceiptCard(receipt: Receipt, onClick: (Receipt) -> Unit){
                 fontSize = 22.sp
             )
         }
+        Text(
+            text = stringResource(R.string.total_price, receipt.totalPrice.toString(), receipt.currency),
+            fontSize = 22.sp
+        )
         if(receipt.note != null){
             Text(
                 text = stringResource(
-                R.string.note,
-                receipt.note),
+                    R.string.note,
+                    receipt.note),
                 fontSize = 22.sp
             )
         }
-        Text(
-            text = receipt.totalPrice.toString() + " " + receipt.currency,
-            fontSize = 22.sp
-        )
 
     }
 }

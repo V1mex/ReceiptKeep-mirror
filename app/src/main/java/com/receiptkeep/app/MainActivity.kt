@@ -13,6 +13,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
+            //Planning single activity architecture
+            //TODO: make MainActivity switch content from ReceiptCardList to ReceiptDetails (and back)
             ReceiptKeepTheme {
                 // dummy data
                 val dummyReceipts = listOf(

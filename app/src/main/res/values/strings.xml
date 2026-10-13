@@ -2,5 +2,7 @@
     <string name="app_name">ReceiptKeep</string>
     <string name="merchant_name">Merchant: %1$s</string>
     <string name="note">Note: %1$s</string>
+    <string name="total_price">Total price: %1$s %2$s</string>
+    <string name="date">Date: %1$s</string>
     <string name="card_opening_failed">Receipt opening failed</string>
 </resources>
