@@ -1,4 +1,4 @@
-package com.receiptkeep.app.ui
+package com.receiptkeep.app.ui.components
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
