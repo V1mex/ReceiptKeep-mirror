@@ -59,22 +59,22 @@ class MainActivity : ComponentActivity() {
 
                         composable<Screen.ReceiptDetails> { backStackEntry ->
                             val receiptId = backStackEntry.toRoute<Screen.ReceiptDetails>().receiptId
-                            val dummy_detailes = listOf( //same dummy data
+                            val dummyDetails = listOf( //same dummy data
                                 ReceiptItem("item1", 123.2, "UAH", 321.3, "liters or very long item name?"),
                                 ReceiptItem("very very very very very very very very very very very very very very very very very long item2 name", 123.2, "UAH", 321.3, "kilograms"),
                                 ReceiptItem("item3", 146346723.2, "UAH", 321.3, null),
                                 ReceiptItem("item4", 123.2, "UAH", 321564.3, "items")
                             )
-                            val dummy_receipt = Receipt(//same dummy data
+                            val dummyReceipt = Receipt(//same dummy data
                                 id = 1L,
                                 merchantName = "Сільпо",
                                 totalPrice = 450.50,
                                 note = "Продукти",
                                 currency = "$",
-                                items = dummy_detailes
+                                items = dummyDetails
                                 )
 
-                            ReceiptDetailsScreen(dummy_receipt) //temporarily passing receiptId to ReceiptDetailsScreen
+                            ReceiptDetailsScreen(dummyReceipt) //temporarily passing receipt to ReceiptDetailsScreen
                             //TODO: get receipt with receiptId from db IN ReceiptDetailsScreen VIEW MODEL
                             //ReceiptDetailsScreen(backStackEntry.toRoute<Screen.ReceiptDetails>().receiptId)
                         }
