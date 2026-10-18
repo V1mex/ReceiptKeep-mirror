@@ -5,4 +5,7 @@
     <string name="total_price">Total price: %1$s %2$s</string>
     <string name="date">Date: %1$s</string>
     <string name="card_opening_failed">Receipt opening failed</string>
+    <string name="item_name">Name: %1$s</string>
+    <string name="item_price">Price: %1$s %2$s</string>
+    <string name="item_quantity">Quantity: %1$s %2$s</string>
 </resources>
