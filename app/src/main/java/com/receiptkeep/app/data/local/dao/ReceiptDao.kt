@@ -13,7 +13,7 @@ interface ReceiptDao {
     fun getAll(): Flow<List<ReceiptEntity>>
 
     @Query("Select * FROM receipts WHERE id = :id")
-    fun getById(id: Long): ReceiptEntity?
+    suspend fun getById(id: Long): ReceiptEntity?
 
     @Insert
     suspend fun insert(receipt: ReceiptEntity)

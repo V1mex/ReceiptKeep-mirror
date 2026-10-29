@@ -60,10 +60,10 @@ class MainActivity : ComponentActivity() {
                         composable<Screen.ReceiptDetails> { backStackEntry ->
                             val receiptId = backStackEntry.toRoute<Screen.ReceiptDetails>().receiptId
                             val dummyDetails = listOf( //same dummy data
-                                ReceiptItem("item1", 123.2, "UAH", 321.3, "liters or very long item name?"),
-                                ReceiptItem("very very very very very very very very very very very very very very very very very long item2 name", 123.2, "UAH", 321.3, "kilograms"),
-                                ReceiptItem("item3", 146346723.2, "UAH", 321.3, null),
-                                ReceiptItem("item4", 123.2, "UAH", 321564.3, "items")
+                                ReceiptItem("item1", 123.2,321.3, "liters or very long item name?"),
+                                ReceiptItem("very very very very very very very very very very very very very very very very very long item2 name", 123.2, 321.3, "kilograms"),
+                                ReceiptItem("item3", 146346723.2, 321.3, null),
+                                ReceiptItem("item4", 123.2, 321564.3, "items")
                             )
                             val dummyReceipt = Receipt(//same dummy data
                                 id = 1L,

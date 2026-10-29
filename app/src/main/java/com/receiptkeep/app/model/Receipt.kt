@@ -9,6 +9,7 @@ data class Receipt (
     val currency : String,
     val date : LocalDate = LocalDate.now(),
     val merchantName : String? = null,
-    val imageUri : String? = null, //imageUri? and items! will only be used in ReceiptDetails
-    val items : List<ReceiptItem>? = null
+    val imageUri : String? = null,
+    val items : List<ReceiptItem>? = null //TODO: remove nullable.
+// Will use empty list in case if user wants to create a receipt manually without taking a picture?
 )
